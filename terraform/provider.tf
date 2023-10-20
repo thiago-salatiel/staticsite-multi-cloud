@@ -5,10 +5,6 @@ terraform {
       source  = "hashicorp/aws"
       version = ">= 5.21"
     }
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = ">= 3.77.0"
-    }
   }
 
   backend "s3" {
@@ -16,6 +12,17 @@ terraform {
     key            = "terraform.tfstate"
     dynamodb_table = "staticsite-multicloud-tf-v001"
     region         = "us-east-1"
+  }
+
+}
+
+terraform {
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 3.77.0"
+    }
   }
 
   backend "azurerm" {
