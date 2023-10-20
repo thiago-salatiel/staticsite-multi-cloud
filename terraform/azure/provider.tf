@@ -5,11 +5,13 @@ terraform {
       version = ">= 3.77.0"
     }
   }
-  backend "azurerm" {
-    resource_group_name  = "rg-terraform"
-    storage_account_name = "straccttf001"
-    container_name       = "tfstate"
-    key                  = "terraform.tfstate"
+  data "terraform_remote_state" "foo" {
+    backend = "azurerm"
+    config = {
+      storage_account_name = "terraform123abc"
+      container_name       = "terraform-state"
+      key                  = "prod.terraform.tfstate"
+    }
   }
 }
 
