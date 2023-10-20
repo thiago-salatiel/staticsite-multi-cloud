@@ -9,5 +9,6 @@ terraform {
 
 provider "azurerm" {
   features {}
-  alias = "cloud"
+  skip_provider_registration = true
+  alias                      = "cloud"
 }
