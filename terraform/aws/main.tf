@@ -41,6 +41,9 @@ output "aws_s3_bucket_website_endpoint" {
 }
 
 resource "aws_s3_object" "bucket-objects" {
+  depends_on = [
+    aws_s3_bucket_acl.bucket-acl,
+  ]
   bucket       = aws_s3_bucket.bucket.id
   for_each     = fileset("../../app/", "*")
   key          = each.value
