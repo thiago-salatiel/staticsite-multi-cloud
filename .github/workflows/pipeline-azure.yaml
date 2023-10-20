@@ -5,6 +5,12 @@ on:
     branches:
     - main
 
+env:
+  ARM_CLIENT_ID      : ${{ secrets.ARM_CLIENT_ID }}
+  ARM_CLIENT_SECRET  : ${{ secrets.ARM_CLIENT_SECRET }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  ARM_TENANT_ID      : ${{ secrets.ARM_TENANT_ID }}
+
 jobs:
 
   tf-run:
@@ -31,11 +37,6 @@ jobs:
 
     - name: Step 05 - Terraform Init
       run : terraform -chdir=./terraform/azure init -input=false
-      env:
-        ARM_CLIENT_ID      : ${{ secrets.ARM_CLIENT_ID }}
-        ARM_CLIENT_SECRET  : ${{ secrets.ARM_CLIENT_SECRET }}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        ARM_TENANT_ID      : ${{ secrets.ARM_TENANT_ID }}
 
     - name: Step 06 - Terraform Validate
       run : terraform -chdir=./terraform/azure validate
