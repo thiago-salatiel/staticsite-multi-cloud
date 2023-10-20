@@ -1,4 +1,4 @@
-name: Multiple providers
+name: Terraform Multicloud
 
 on:
   push:
