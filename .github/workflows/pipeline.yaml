@@ -1,4 +1,4 @@
-name: Terraform Multicloud
+name: Multi Cloud Providers
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
 
   tf-run-aws:
-    name: Terraform run on AWS
+    name: Terraform on AWS
     runs-on: ubuntu-latest
  
     steps:
@@ -49,7 +49,7 @@ jobs:
       run : terraform -chdir=./terraform/aws show
 
   tf-run-azure:
-    name: Terraform run on Azure
+    name: Terraform on Azure
     runs-on: ubuntu-latest
     env:
         ARM_CLIENT_ID      : ${{ secrets.ARM_CLIENT_ID }}
