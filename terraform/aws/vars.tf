@@ -1,5 +1,5 @@
 variable "bucket_name" {
-  default = "staticsite-multicloud-v001"
+  default = "multicloud-thiago"
 }
 
 variable "website_endpoint" {
