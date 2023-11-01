@@ -1,5 +1,5 @@
 variable "bucket_name" {
-  default = "multicloud-thiago"
+  default = "multicloud-thiago1"
 }
 
 variable "website_endpoint" {
